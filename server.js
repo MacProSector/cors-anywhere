@@ -1,3 +1,5 @@
+var fs = require('fs');
+
 // Listen on a specific host via the HOST environment variable
 var host = process.env.HOST || '0.0.0.0';
 // Listen on a specific port via the PORT environment variable
@@ -40,6 +42,10 @@ cors_proxy.createServer({
     // 'x-forwarded-port',
   ],
   redirectSameOrigin: true,
+  httpsOptions: {
+	key: fs.readFileSync('/etc/letsencrypt/live/www.simonyu.net/privkey.pem', 'utf8'),
+	cert: fs.readFileSync('/etc/letsencrypt/live/www.simonyu.net/fullchain.pem', 'utf8')
+  },
   httpProxyOptions: {
     // Do not add X-Forwarded-For, etc. headers, because Heroku already adds it.
     xfwd: false,

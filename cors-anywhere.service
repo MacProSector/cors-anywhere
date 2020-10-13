@@ -1,0 +1,9 @@
+[Unit]
+Description=CORS Anywhere Proxy Server
+After=network.target
+
+[Service]
+ExecStart=node /opt/cors-anywhere/server.js
+
+[Install]
+WantedBy=multi-user.target

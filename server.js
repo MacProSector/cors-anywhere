@@ -26,7 +26,9 @@ function parseEnvWhiteList(env)
 {
 	if (!env)
 	{
-		return ["https://www.simonyu.net", "http://fa20-cs523-40.cs.illinois.edu:8000"];
+		return ["https://www.simonyu.net",
+				"http://fa20-cs523-40.cs.illinois.edu:8000",
+				"http://shaoyu-virtual-machine:8000"];
 	}
 
 	return env.split(',');
